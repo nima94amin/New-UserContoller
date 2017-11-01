@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="76dp">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight=".8">
+
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/imb_moshkhast_u"
+                android:layout_weight="1"
+                android:src="@drawable/users"
+                android:scaleType="fitCenter"
+                android:layout_marginTop="3dp" />
+
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/imb_frend_u"
+                android:layout_weight="1"
+                android:src="@drawable/invaite"
+                android:scaleType="fitCenter"
+                android:layout_marginTop="3dp" />
+
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/imb_score_u"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                android:src="@drawable/pricetag"
+                android:layout_marginTop="3dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.7" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="مشخصات"
+                android:id="@+id/textView2"
+                android:layout_weight="1"
+                android:gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="دوستان"
+                android:id="@+id/textView4"
+                android:layout_weight="1"
+                android:gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="امتیازات"
+                android:id="@+id/textView3"
+                android:layout_weight="1"
+                android:gravity="center_horizontal" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:id="@+id/ly_moshakhast"
+            android:visibility="invisible">
+
+            <LinearLayout
+
+                android:orientation="vertical" android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:fillViewport="true"
+                    android:scrollbars = "vertical"
+                    android:scrollbarStyle="insideInset"
+                    >
+                    <TableLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:stretchColumns="1"
+                        >
+                        <!-- Add here which you want -->
+                        <LinearLayout
+                            android:orientation="vertical" android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                                android:text="مشخصات شناسه "
+                                android:id="@+id/textView12"
+                                android:layout_gravity="right"
+                                android:layout_marginRight="15dp"
+                                android:layout_marginBottom="15dp"
+                                android:layout_marginTop="10dp"
+                                android:textColor="#0e31fb" />
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="match_parent"
+                                android:layout_height="372dp"
+                                android:layout_weight="1">
+
+                                <LinearLayout
+                                    android:orientation="horizontal"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1">
+
+                                    <LinearLayout
+                                        android:orientation="vertical"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="2">
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="0dp"
+                                            android:textAppearance="?android:attr/textAppearanceLarge"
+                                            android:id="@+id/tv_username_mskst"
+                                            android:layout_weight="1"
+                                            android:layout_marginLeft="5dp"
+                                            android:gravity="center_horizontal"
+                                            android:background="#8ddcf2"
+                                            android:textSize="17dp" />
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="0dp"
+                                            android:textAppearance="?android:attr/textAppearanceLarge"
+                                            android:id="@+id/tv_moblie__mskst"
+                                            android:layout_weight="1"
+                                            android:layout_marginLeft="5dp"
+                                            android:gravity="center_horizontal"
+                                            android:background="#dddddd"
+                                            android:textSize="17dp" />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:orientation="vertical"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:background="#565656">
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="1dp"
+                                            android:textAppearance="?android:attr/textAppearanceLarge"
+                                            android:text="نام کاربری"
+                                            android:id="@+id/textView14"
+                                            android:layout_weight="1"
+                                            android:layout_marginRight="5dp"
+                                            android:textColor="#ffffff"
+                                            android:textSize="16dp" />
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="1dp"
+                                            android:textAppearance="?android:attr/textAppearanceLarge"
+                                            android:text="شماره موبایل"
+                                            android:id="@+id/textView18"
+                                            android:layout_weight="1"
+                                            android:layout_marginRight="5dp"
+                                            android:textColor="#ffffff"
+                                            android:textSize="16dp" />
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:orientation="vertical"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="0.24" />
+
+                                <LinearLayout
+                                    android:orientation="horizontal"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="2" >
+
+                                    <LinearLayout
+                                        android:orientation="vertical"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="2" >
+
+                                        <LinearLayout
+                                            android:orientation="vertical"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent" >
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="0dp"
+                                                android:textAppearance="?android:attr/textAppearanceLarge"
+                                                android:id="@+id/tv_name_mskst"
+                                                android:layout_weight="1"
+                                                android:layout_marginLeft="5dp"
+                                                android:gravity="center_horizontal"
+                                                android:background="#8ddcf2"
+                                                android:textSize="17dp" />
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="0dp"
+                                                android:textAppearance="?android:attr/textAppearanceLarge"
+                                                android:id="@+id/tv_family_mskst"
+                                                android:layout_weight="1"
+                                                android:layout_marginLeft="5dp"
+                                                android:gravity="center_horizontal"
+                                                android:background="#dddddd"
+                                                android:textSize="17dp" />
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="0dp"
+                                                android:textAppearance="?android:attr/textAppearanceLarge"
+                                                android:id="@+id/tv_code__mskst"
+                                                android:layout_weight="1"
+                                                android:layout_marginLeft="5dp"
+                                                android:gravity="center_horizontal"
+                                                android:background="#eeeeee"
+                                                android:textSize="17dp" />
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="0dp"
+                                                android:textAppearance="?android:attr/textAppearanceLarge"
+                                                android:id="@+id/tv_father_mskst"
+                                                android:layout_weight="1"
+                                                android:layout_marginLeft="5dp"
+                                                android:gravity="center_horizontal"
+                                                android:background="#dddddd"
+                                                android:textSize="17dp" />
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="0dp"
+                                                android:textAppearance="?android:attr/textAppearanceLarge"
+                                                android:id="@+id/tv_email_mskst"
+                                                android:layout_weight="1"
+                                                android:layout_marginLeft="5dp"
+                                                android:gravity="center_horizontal"
+                                                android:background="#eeeeee"
+                                                android:textSize="17dp" />
+                                        </LinearLayout>
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:orientation="vertical"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:background="#565656">
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="1dp"
+                                            android:textAppearance="?android:attr/textAppearanceLarge"
+                                            android:text="نام "
+                                            android:id="@+id/textView21"
+                                            android:layout_weight="1"
+                                            android:layout_marginRight="5dp"
+                                            android:textColor="#ffffff"
+                                            android:textSize="16dp" />
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="1dp"
+                                            android:textAppearance="?android:attr/textAppearanceLarge"
+                                            android:text="نام خانوادگی"
+                                            android:id="@+id/textView22"
+                                            android:layout_weight="1"
+                                            android:layout_marginRight="5dp"
+                                            android:textColor="#ffffff"
+                                            android:textSize="16dp" />
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="1dp"
+                                            android:textAppearance="?android:attr/textAppearanceLarge"
+                                            android:text="کدملی"
+                                            android:id="@+id/textView23"
+                                            android:layout_weight="1"
+                                            android:layout_marginRight="5dp"
+                                            android:textColor="#ffffff"
+                                            android:textSize="16dp" />
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="1dp"
+                                            android:textAppearance="?android:attr/textAppearanceLarge"
+                                            android:text="نام پدر"
+                                            android:id="@+id/textView24"
+                                            android:layout_weight="1"
+                                            android:layout_marginRight="5dp"
+                                            android:textColor="#ffffff"
+                                            android:textSize="16dp" />
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="1dp"
+                                            android:textAppearance="?android:attr/textAppearanceLarge"
+                                            android:text="ایمیل"
+                                            android:id="@+id/textView29"
+                                            android:layout_weight="1"
+                                            android:layout_marginRight="5dp"
+                                            android:textColor="#ffffff"
+                                            android:textSize="16dp" />
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                                android:text="نشانی"
+                                android:id="@+id/textView13"
+                                android:layout_gravity="right"
+                                android:layout_marginRight="15dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginBottom="15dp"
+                                android:textColor="#1a44ea" />
+
+                            <LinearLayout
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="200dp"
+                                android:layout_weight="1"
+                                android:layout_marginBottom="10dp">
+
+                                <LinearLayout
+                                    android:orientation="vertical"
+                                    android:layout_width="0dp"
+                                    android:layout_height="fill_parent"
+                                    android:layout_weight="2">
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="0dp"
+                                        android:textAppearance="?android:attr/textAppearanceLarge"
+                                        android:id="@+id/tv_ostan_mskst"
+                                        android:layout_weight="1"
+                                        android:layout_marginLeft="5dp"
+                                        android:gravity="center_horizontal"
+                                        android:background="#8ddcf2"
+                                        android:textSize="17dp" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="0dp"
+                                        android:textAppearance="?android:attr/textAppearanceLarge"
+                                        android:id="@+id/tv_city_mskst"
+                                        android:layout_weight="1"
+                                        android:layout_marginLeft="5dp"
+                                        android:gravity="center_horizontal"
+                                        android:background="#dddddd"
+                                        android:textSize="17dp" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="0dp"
+                                        android:textAppearance="?android:attr/textAppearanceLarge"
+                                        android:id="@+id/tv_address_mskst"
+                                        android:layout_weight="2.5"
+                                        android:layout_marginLeft="5dp"
+                                        android:gravity="center_horizontal|fill"
+                                        android:background="#eeeeee"
+                                        android:scrollIndicators="right"
+                                        android:inputType="textLongMessage|textMultiLine"
+                                        android:textSize="17dp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:orientation="vertical"
+                                    android:layout_width="0dp"
+                                    android:layout_height="fill_parent"
+                                    android:layout_weight="1"
+                                    android:background="#565656">
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:textAppearance="?android:attr/textAppearanceLarge"
+                                        android:text="استان"
+                                        android:id="@+id/textView34"
+                                        android:layout_weight=".5"
+                                        android:password="false"
+                                        android:layout_marginRight="5dp"
+                                        android:textColor="#ffffff"
+                                        android:textSize="16dp" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:textAppearance="?android:attr/textAppearanceLarge"
+                                        android:text="شهر"
+                                        android:id="@+id/textView35"
+                                        android:layout_weight=".5"
+                                        android:layout_marginRight="5dp"
+                                        android:textColor="#ffffff"
+                                        android:textSize="16dp" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:textAppearance="?android:attr/textAppearanceLarge"
+                                        android:text="آدرس"
+                                        android:id="@+id/textView36"
+                                        android:layout_weight="1"
+                                        android:layout_marginRight="5dp"
+                                        android:layout_marginBottom="10dp"
+                                        android:textColor="#ffffff"
+                                        android:textSize="16dp" />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                    </TableLayout>
+
+                </ScrollView>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:id="@+id/ly_score"
+            android:visibility="invisible">
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/rc_score"
+                android:clipToPadding="false"
+                android:scrollbars="vertical"
+                android:visibility="visible" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:id="@+id/ly_frends"
+            android:visibility="invisible">
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/rc_firend"
+                android:clipToPadding="false"
+                android:scrollbars="vertical"
+                android:visibility="visible" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

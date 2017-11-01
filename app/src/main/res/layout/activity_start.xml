@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/t1">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#737373"
+        android:layout_marginBottom="30dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="مدیریت "
+            android:id="@+id/textView17"
+            android:layout_weight="1"
+            android:gravity="fill_horizontal"
+            android:textColor="#ffffff"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="5dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="5dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:id="@+id/imb_users"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:scaleType="fitCenter"
+                android:src="@drawable/users"
+                android:layout_marginTop="10dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="کاربران"
+                android:id="@+id/txt_user"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:textColor="#ffffff" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:id="@+id/imb_seting"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:scaleType="fitCenter"
+                android:src="@drawable/seeting"
+                android:layout_marginTop="10dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="تنطیمات"
+                android:id="@+id/txt_seeting"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:textColor="#ffffff" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:id="@+id/imb_invate"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:scaleType="fitCenter"
+                android:src="@drawable/invaite" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="ارسال دعوت"
+                android:id="@+id/txt_invaite"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:textColor="#ffffff" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:id="@+id/imb_exite"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:scaleType="fitCenter"
+                android:src="@drawable/error" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="خروج"
+                android:id="@+id/txt_exite"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:textColor="#ffffff" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+    </LinearLayout>
+
+
+</LinearLayout>

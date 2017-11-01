@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#1d82c7">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="کاربران"
+            android:id="@+id/textView33"
+            android:textColor="#ffffff"
+            android:scrollIndicators="right"
+            android:padding="2dp"
+            android:layout_margin="4dp"
+            android:layout_gravity="right"
+            android:layout_marginRight="6dp" />
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/recycler_view_user"
+        android:clipToPadding="false"
+        android:scrollbars="vertical">
+
+    </android.support.v7.widget.RecyclerView>
+
+
+
+</LinearLayout>
