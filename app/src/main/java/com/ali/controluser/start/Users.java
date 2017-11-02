@@ -2,6 +2,7 @@ package com.ali.controluser.start;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -18,6 +19,7 @@ import com.ali.controluser.database.JSONParser;
 import com.ali.controluser.database.dbConnector;
 import com.ali.controluser.inner.AdatpterCardViewUser;
 import com.ali.controluser.inner.class_login;
+import com.ali.controluser.innerUsers.ActivityInnerPage;
 import com.ali.controluser.main.MainActivity;
 import com.ali.controluser.recyclerListener.RecyclerTouchListener;
 import com.ali.controluser.struct.First_user_server;
@@ -65,7 +67,12 @@ public class Users extends Activity {
 
 
     //*************    url   *************//
+
     private final String url = "http://aliexamination.ir/firestUser.php";
+    private final String urlselectfriends = "http://aliexamination.ir/selectFriends.php";
+    private final String urlselectfriendsinfo = "http://aliexamination.ir/selectFriendsInfo.php"; //for selct informain in database ?????
+
+
 
 
 
@@ -206,15 +213,8 @@ public class Users extends Activity {
                 } else {
                     Log.i("give username",first_users.get(position).getUsername().toString());
 
-                    //selectFrends(position);   /////////////////////this is select  firend s any users/.....
-                    //Movie movie = movieList.get(position);
-                   /* Toast.makeText(MainActivity.context, position + " is selected!", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(MainActivity.context, ActivityInnerPage.class);
-                    // intent.putExtra("name",ti);
-                    intent.putExtra("id", position + "");
-                    intent.putExtra("username", first_users.get(position).getUsername().toString());   /////??????????????
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    MainActivity.context.startActivity(intent);*/
+                    selectFrends(position);   /////////////////////this is select  firend s any users/.....
+
 
                 }
             }
@@ -227,6 +227,198 @@ public class Users extends Activity {
 
 
     }
+    //*************    select any user frinde    *************//
+
+    public  void selectFrends(int position) {
+        firend_user.clear();
+
+
+        Log.i("give username",first_users.get(position).getUsername().toString());
+
+        new class_selectFriends(first_users.get(position).getUsername().toString(),position).execute();
+    }
+
+
+    //*************    select any user frinde from server   *************//
+    public class class_selectFriends extends AsyncTask {
+
+        JSONParser jsonParser=new JSONParser();
+        JSONArray jsonArray =null;
+        String username;
+        int position;
+
+
+        public class_selectFriends(String username,int position){
+            this.username=username;
+            this.position=position;
+            Log.i("give usernamese",username);
+
+        }
+
+        @Override
+        protected void onPostExecute(Object o) {
+            super.onPostExecute(o);
+            // show();                 ////////////bebin lazme
+
+
+            Toast.makeText(MainActivity.context, position + " is selected!", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(MainActivity.context, ActivityInnerPage.class);
+            // intent.putExtra("name",ti);
+            intent.putExtra("id", position + "");
+            intent.putExtra("username", first_users.get(position).getUsername().toString());   /////??????????????
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            MainActivity.context.startActivity(intent);
+            Log.i("size freind",firend_user.size()+"");
+
+            for(int i=0;i<firend_user.size();i++){
+                String number= firend_user.get(i).getMoblie();
+                Log.i("fori",firend_user.size()+":"+i+"::"+number);
+
+                new class_selectFriendsInfo(number,i).execute();
+
+            }
+        }
+
+        @Override
+        protected Object doInBackground(Object[] params) {
+
+            Log.i("alialialiselrct freind","jskjsd");
+
+            HashMap<String,String> param=new HashMap<String , String>();
+            param.put("username",username);
+
+            Log.i("alialialiselectfr","aliii="+username);
+            JSONObject jsonObject =jsonParser.makeHttpRequest(urlselectfriends,"POST",param);   //receive information form sever and put into jsonObject...
+
+            try {
+
+                int t=jsonObject.getInt("t");
+
+                Log.i("alialialiselectfr","jskjsd="+t);
+                if(t==1){
+
+                    jsonArray= jsonObject.getJSONArray("friends");    /// input json response["travel"] in php code ;  and give me length...
+
+                    for(int i=0 ; i<jsonArray.length();i++){
+
+                        JSONObject temp=jsonArray.getJSONObject(i);
+
+                        String friend_mob = temp.getString("friend_mob");
+
+
+                        ////////////////////inja in etelaat ra vared list first user mikonim...
+
+
+                        //////this is a templite.....
+                        First_user_server first_user_server = new First_user_server(username, friend_mob, 1);
+                        first_user_server.setUsername(username);
+                        first_user_server.setMoblie(friend_mob);
+
+
+                        firend_user.add(first_user_server);
+                        //firend_user.get(i).setUsername();
+                        Log.i("xsoal_server22222+++", "t: " + firend_user);
+
+
+                    }
+
+                }else{
+                    // Toast.makeText(MainActivity.context,"no imfomainion", Toast.LENGTH_SHORT).show();
+                }
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            Log.i("show2friend","come here"+Users.first_users.size());
+
+
+
+            return null;
+
+        }
+
+
+    }
+
+    //*************    select firends information from servr  || use in  class_selectFriends *************//
+
+    public class class_selectFriendsInfo extends AsyncTask {   /////baraye jostejooie moshakhasate dostan...   ////test...
+
+        JSONParser jsonParser=new JSONParser();
+        JSONArray jsonArray =null;
+        String friend_mob;
+        String usernameFriend;
+        String registerFriend;
+        int pos;
+
+        public class_selectFriendsInfo(String friend_mob, int pos){
+            this.friend_mob=friend_mob;
+            this.pos=pos;
+
+        }
+
+
+        @Override
+        protected void onPostExecute(Object o) {
+            super.onPostExecute(o);
+            firend_user.get(pos).setUsername(usernameFriend);
+            firend_user.get(pos).setRegister(Integer.parseInt(registerFriend));
+            Log.i("postcom","1"+pos+":"+firend_user);
+        }
+
+        @Override
+        protected Object doInBackground(Object[] params) {
+
+            Log.i("alialialiinfoali",friend_mob+":"+pos);
+
+            HashMap<String,String> param=new HashMap<String , String>();
+            param.put("mobile",friend_mob);
+
+
+            JSONObject jsonObject =jsonParser.makeHttpRequest(urlselectfriendsinfo,"POST",param);   //receive information form sever and put into jsonObject...
+
+            try {
+
+                int t=jsonObject.getInt("t");
+
+                Log.i("alialialiinfot",friend_mob+"="+t);
+                if(t==1){
+
+                    jsonArray= jsonObject.getJSONArray("friendsinfo");    /// input json response["travel"] in php code ;  and give me length...
+
+                    for(int i=0 ; i<jsonArray.length();i++){
+
+                        JSONObject temp=jsonArray.getJSONObject(i);
+
+                        usernameFriend = temp.getString("username");
+                        registerFriend = temp.getString("register");
+
+
+                    }
+
+                }else{
+                    //Toast.makeText(MainActivity.context,"no imfomainion", Toast.LENGTH_SHORT).show();
+                    usernameFriend = "no username";
+                    registerFriend = "0";
+                }
+
+                Log.i("alialialiinfo2",friend_mob+"="+usernameFriend+registerFriend+":"+pos);
+
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            Log.i("show2","come here"+Users.first_users.size());
+
+
+
+            return null;
+
+        }
+
+
+    }
+
 
 
 
