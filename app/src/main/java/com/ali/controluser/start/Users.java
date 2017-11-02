@@ -5,8 +5,11 @@ import android.app.ProgressDialog;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -14,6 +17,9 @@ import com.ali.controluser.R;
 import com.ali.controluser.database.JSONParser;
 import com.ali.controluser.database.dbConnector;
 import com.ali.controluser.inner.AdatpterCardViewUser;
+import com.ali.controluser.inner.class_login;
+import com.ali.controluser.main.MainActivity;
+import com.ali.controluser.recyclerListener.RecyclerTouchListener;
 import com.ali.controluser.struct.First_user_server;
 
 import org.json.JSONArray;
@@ -167,6 +173,62 @@ public class Users extends Activity {
 
 
     }
+    //*************    show users to recycler_user   *************//
+    public void show() {
+
+        Log.i("show", "come here" + first_users.size());
+////////////////////////hehe ali clean this commentonly....
+        recyclerView = (RecyclerView) findViewById(R.id.recycler_view_user);
+        adatpterCardViewUser = new AdatpterCardViewUser(MainActivity.context);
+        recyclerView.setAdapter(adatpterCardViewUser);
+        recyclerView.setLayoutManager(new LinearLayoutManager((MainActivity.context)));
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(MainActivity.context);
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.addOnItemTouchListener(new RecyclerTouchListener(MainActivity.context, recyclerView, new RecyclerTouchListener.ClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+
+                int register = first_users.get(position).getRegister();
+                Log.i("give username",first_users.get(position).getUsername().toString()+"::"+register);
+
+
+                if (register == 0) {
+                    number = first_users.get(position).getMoblie().toString();
+                    new class_login(number,"0").execute();
+
+                    Log.i("statussms",  "alialaiasi");
+                    Toast.makeText(MainActivity.context, "این شماره به لیست ارسال sms اضافه شد.", Toast.LENGTH_LONG).show();
+
+                    /////////////////////////////inja ro mikamam vasl konam be sever va test konam...
+
+                    //  new insetNumber().execute();
+                } else {
+                    Log.i("give username",first_users.get(position).getUsername().toString());
+
+                    //selectFrends(position);   /////////////////////this is select  firend s any users/.....
+                    //Movie movie = movieList.get(position);
+                   /* Toast.makeText(MainActivity.context, position + " is selected!", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(MainActivity.context, ActivityInnerPage.class);
+                    // intent.putExtra("name",ti);
+                    intent.putExtra("id", position + "");
+                    intent.putExtra("username", first_users.get(position).getUsername().toString());   /////??????????????
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    MainActivity.context.startActivity(intent);*/
+
+                }
+            }
+
+            @Override
+            public void onLongClick(View view, int position) {
+
+            }
+        }));
+
+
+    }
+
+
 
 
 
