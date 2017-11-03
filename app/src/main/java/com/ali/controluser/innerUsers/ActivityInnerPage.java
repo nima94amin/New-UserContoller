@@ -3,6 +3,7 @@ package com.ali.controluser.innerUsers;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.graphics.Typeface;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -16,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ali.controluser.R;
+import com.ali.controluser.database.JSONParser;
 import com.ali.controluser.database.dbConnector;
 import com.ali.controluser.inner.class_login;
 import com.ali.controluser.main.MainActivity;
@@ -25,7 +27,12 @@ import com.ali.controluser.struct.Algol_sever;
 import com.ali.controluser.struct.Javab_sever;
 import com.ali.controluser.struct.Score_sever;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class ActivityInnerPage extends Activity   implements View.OnClickListener {
 
@@ -76,6 +83,7 @@ public class ActivityInnerPage extends Activity   implements View.OnClickListene
 
 
     //*************    url   *************//
+    private final String urlselectInformationUesr = "http://aliexamination.ir/selectImformaion.php";
 
 
     @Override
@@ -129,7 +137,7 @@ public class ActivityInnerPage extends Activity   implements View.OnClickListene
             lyScore.setVisibility(View.GONE);
             Toast.makeText(getApplicationContext(), "1 Clicked", Toast.LENGTH_SHORT).show();
 
-           // Boolean result=moshkhast(usrname1);
+           Boolean result=moshkhast(usrname1);
            // Log.i("reusltali",result.toString()+usrname1);
 
 
@@ -195,6 +203,101 @@ public class ActivityInnerPage extends Activity   implements View.OnClickListene
 
     }
     //*************    select information any user   *************//
+    private Boolean moshkhast(String username){
+
+        new class_selectInformationUser(username).execute();
+        return false;
+    }
+
+    //*************    select information any user form sever   *************//
+    public class class_selectInformationUser extends AsyncTask {   ////select from javab dade ha...
+
+        JSONParser jsonParser=new JSONParser();
+        JSONArray jsonArray =null;
+        String username;
+        String city,mobile,name,family,fathername,code,email,ostan,address;
+
+
+
+        public class_selectInformationUser(String username){
+            this.username=username;
+            Log.i("give usernamesescore",username);
+
+        }
+
+        @Override
+        protected void onPostExecute(Object o) {
+            super.onPostExecute(o);
+
+            Log.i("comcomcom",city);
+            tvUsername.setText(username);
+            tvMoblie.setText(mobile);
+            tvName.setText(name);
+            tvFamiliy.setText(family);
+            tvFathername.setText(fathername);
+            tvCode.setText(code);
+            tvEmail.setText(email);
+            tvOstan.setText(ostan);
+            tvCity.setText(city);
+            tvAddress.setText(address);
+        }
+
+        @Override
+        protected Object doInBackground(Object[] params) {
+
+            Log.i("select_usersifnfo","jskjsd");
+
+            HashMap<String,String> param=new HashMap<String , String>();
+            param.put("username",username);
+
+            Log.i("select_scoerinfor","aliii="+username);
+            JSONObject jsonObject =jsonParser.makeHttpRequest(urlselectInformationUesr,"POST",param);   //receive information form sever and put into jsonObject...
+
+            try {
+
+                int t=jsonObject.getInt("t");
+
+                Log.i("alialialiselectfrscore","jskjsd="+t);
+                if(t==1){
+
+                    jsonArray= jsonObject.getJSONArray("information");    /// input json response["travel"] in php code ;  and give me length...
+
+                    for(int i=0 ; i<jsonArray.length();i++){
+
+                        JSONObject temp=jsonArray.getJSONObject(i);
+
+                        name = temp.getString("name");
+                        family = temp.getString("family");
+                        fathername = temp.getString("fathername");
+                        code = temp.getString("code");
+                        email = temp.getString("email");
+                        city = temp.getString("city");
+                        ostan = temp.getString("ostan");
+                        address = temp.getString("address");
+                        mobile = temp.getString("mobile");
+
+
+                    }
+
+                }else{
+                    // Toast.makeText(MainActivity.context,"no imfomainion", Toast.LENGTH_SHORT).show();
+                }
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            Log.i("show2scoretype","come here"+typeScore.size());
+
+
+
+            return null;
+
+        }
+
+
+    }
+    
+
 
 
 
