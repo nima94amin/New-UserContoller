@@ -24,7 +24,7 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#1A237E">
+                android:background="#3848f0">
 
                 <ImageView
                     android:layout_width="200dp"
@@ -42,7 +42,7 @@
                     android:layout_height="wrap_content"
                     android.support.design:hintTextAppearance="@style/GreenTextInputLayout"
                     android:textColor="@android:color/white"
-                    android:textColorHint="#f44336"
+                    android:textColorHint="#ffffff"
 
                     >
 
@@ -53,7 +53,7 @@
                         android:inputType="text"
                         android:layout_centerHorizontal="true"
                         android:layout_marginBottom="47dp"
-                        android:textColor="#f44336"
+                        android:textColor="#fafafa"
                         android:layout_gravity="center_horizontal"
                         android:theme="@style/MyEditText"
                         android:hint="نام کاربری"
@@ -61,7 +61,8 @@
                         android:textSize="22dp"
                         android:drawableLeft="@drawable/username"
                         android:focusableInTouchMode="true"
-                        android:gravity="center" />
+                        android:gravity="center"
+                        android:text="admin" />
 
                 </android.support.design.widget.TextInputLayout>
 
@@ -73,7 +74,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@android:color/white"
-                    android:textColorHint="#f44336">
+                    android:textColorHint="#faf8f8">
 
                     <EditText
                         android:layout_width="200dp"
@@ -82,7 +83,7 @@
                         android:layout_centerVertical="true"
                         android:layout_alignLeft="@+id/txtusername"
                         android:layout_alignStart="@+id/txtusername"
-                        android:textColor="#f44336"
+                        android:textColor="#faf7f7"
                         android:layout_gravity="center_horizontal"
                         android:textColorHint="#F6F6F6"
                         android:hint="کلمه عبور"
@@ -91,7 +92,9 @@
                         android:drawableLeft="@drawable/mobile"
                         android:gravity="center"
                         android:inputType="text"
-                        android:maxLength="11" />
+                        android:maxLength="11"
+                        android:text="admin"
+                        android:password="true" />
                     android:theme="@style/MyEditText"
                     android:gravity="center"
                     android:textSize="22dp" />
@@ -109,8 +112,8 @@
                     android:layout_alignStart="@+id/btn_internet"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="50dp"
-                    android:background="#1A237E"
-                    android:textColor="#f44336"
+                    android:background="#4d5cef"
+                    android:textColor="#faf8f8"
                     android:drawableLeft="@drawable/enterlogin"
 
                     android:textSize="20dp" />

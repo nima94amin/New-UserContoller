@@ -83,7 +83,7 @@ public class ActivityInnerPage extends Activity   implements View.OnClickListene
 
 
     //*************    url   *************//
-    private final String urlselectInformationUesr = "http://aliexamination.ir/selectImformaion.php";
+    private final String urlselectfriendsinfo = "http://aliexamination.ir/selectFriendsInfo.php";
     private final String urlselectScoreType = "http://aliexamination.ir/selectTypeScore.php";
     private final String urlselectAlgorithm = "http://aliexamination.ir/selectAlgorthim.php";
     private final String urlselectAnsewerUser ="http://aliexamination.ir/selectAnswerUser.php";
@@ -91,6 +91,7 @@ public class ActivityInnerPage extends Activity   implements View.OnClickListene
     private final String urlselectScore        = "http://aliexamination.ir/selectScore.php";
     private final String urlUpdateAnswertScore ="http://aliexamination.ir/updateAnswerScore.php";
     private final String urlselectInformationUesr = "http://aliexamination.ir/selectImformaion.php";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -143,8 +144,8 @@ public class ActivityInnerPage extends Activity   implements View.OnClickListene
             lyScore.setVisibility(View.GONE);
             Toast.makeText(getApplicationContext(), "1 Clicked", Toast.LENGTH_SHORT).show();
 
-           Boolean result=moshkhast(usrname1);
-           // Log.i("reusltali",result.toString()+usrname1);
+            Boolean result=moshkhast(usrname1);
+            Log.i("reusltali",result.toString()+usrname1);
 
 
         }else if(v==imbScore){
@@ -153,7 +154,7 @@ public class ActivityInnerPage extends Activity   implements View.OnClickListene
             lyMoshkhast.setVisibility(View.GONE);
             lyFrend.setVisibility(View.GONE);
             lyScore.setVisibility(View.VISIBLE);
-           // score();
+            score();
             ///show this score in rc_score...
 
 
@@ -286,7 +287,7 @@ public class ActivityInnerPage extends Activity   implements View.OnClickListene
                     }
 
                 }else{
-                    // Toast.makeText(MainActivity.context,"no imfomainion", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.context,"no imfomainion", Toast.LENGTH_SHORT).show();
                 }
 
             } catch (JSONException e) {
@@ -412,7 +413,6 @@ public class ActivityInnerPage extends Activity   implements View.OnClickListene
 
     }
     //*************    select algorthim form sever for any question for excute scores any user  || use in class_selectTypeScore *************//
-
 
     public class class_selectAlgorithm extends AsyncTask {
 
@@ -883,7 +883,6 @@ public class ActivityInnerPage extends Activity   implements View.OnClickListene
 
 
     }
-
 
 
 

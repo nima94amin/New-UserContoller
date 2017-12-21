@@ -3,33 +3,19 @@ package com.ali.controluser.main;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Build;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.ali.controluser.R;
 import com.ali.controluser.start.Start;
-import com.ali.controluser.struct.Algol_sever;
-import com.ali.controluser.struct.Answer_user_server;
-import com.ali.controluser.struct.First_user_server;
-import com.ali.controluser.struct.Frind_sever;
-import com.ali.controluser.struct.Javab_sever;
-import com.ali.controluser.struct.Score_sever;
-import com.ali.controluser.struct.Soal_sever;
-import com.ali.controluser.struct.Type_server;
-import com.ali.controluser.struct.Users_sever;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -78,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
         context = getApplicationContext();
 
-        /////////////////// color of statusBar ...
+        /////////////////// color of statuBar ...
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
@@ -88,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
 
         typeface = Typeface.createFromAsset(MainActivity.this.getAssets(),"font/BNazanin.ttf");
 
-        //*************    insetfont   *************//
+        //*************    insetf ont   *************//
 
         usernameText =(android.support.design.widget.TextInputLayout)findViewById(R.id.input_layout_usename);
         usernameText.setTypeface(typeface);

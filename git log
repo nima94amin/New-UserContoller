@@ -1,0 +1,35 @@
+[33mcommit 4b6cde45bf98090368c07645f9589a67d171bbf1[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: nima94amin <ziro9196113387@gmail.com>
+Date:   Fri Nov 3 14:49:24 2017 +0330
+
+    Add function for calculte score and insrt into sever for show later
+
+[33mcommit 78529f672b33377e86b01e9d9be672ab933c0ca7[m
+Author: nima94amin <ziro9196113387@gmail.com>
+Date:   Fri Nov 3 11:46:08 2017 +0330
+
+    Load evry user information from sever that register
+
+[33mcommit ccc5589f87ca643a339f7cd17b2f2a504fad74fa[m
+Author: nima94amin <ziro9196113387@gmail.com>
+Date:   Thu Nov 2 15:06:46 2017 +0330
+
+    Add function for find evry firend and info them for evry users
+
+[33mcommit 0e15b417277b8fddb3cbf6e5eadbc65661a36d25[m
+Author: nima94amin <ziro9196113387@gmail.com>
+Date:   Thu Nov 2 11:31:07 2017 +0330
+
+    Add function for show user in recyclerView...
+
+[33mcommit 3848eecdb82bd45aee0b78d6052cd7df7ce3c906[m
+Author: nima94amin <ziro9196113387@gmail.com>
+Date:   Thu Nov 2 11:27:49 2017 +0330
+
+    Select all user taht use from online question form server and show to manager
+
+[33mcommit beaff5e976e76244e463187b5ddb818417c6e42c[m
+Author: nima94amin <ziro9196113387@gmail.com>
+Date:   Wed Nov 1 15:53:44 2017 +0330
+
+    Work with severside in project userController...

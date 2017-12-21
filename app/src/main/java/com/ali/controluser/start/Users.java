@@ -73,9 +73,6 @@ public class Users extends Activity {
     private final String urlselectfriendsinfo = "http://aliexamination.ir/selectFriendsInfo.php"; //for selct informain in database ?????
 
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,13 +92,12 @@ public class Users extends Activity {
     private void select() {    ///az ssever list karbarn ra miavard ham onaye ro ke sabte nam kardam va ham onee ra ke nakardan..
 
         /////////////////////
-       // new class_selectAllUsers().execute();
+        new class_selectAllUsers().execute();
 
     }
 
-
-
     //*************    select all user form server and show to manager    *************//
+
     public class class_selectAllUsers extends AsyncTask {
 
         JSONParser jsonParser=new JSONParser();
@@ -118,7 +114,7 @@ public class Users extends Activity {
 
             //*************    show user in user_recycler   *************//
 
-           // show();
+            show();
         }
 
         @Override
@@ -180,6 +176,7 @@ public class Users extends Activity {
 
 
     }
+
     //*************    show users to recycler_user   *************//
     public void show() {
 
@@ -214,7 +211,14 @@ public class Users extends Activity {
                     Log.i("give username",first_users.get(position).getUsername().toString());
 
                     selectFrends(position);   /////////////////////this is select  firend s any users/.....
-
+                    //Movie movie = movieList.get(position);
+                   /* Toast.makeText(MainActivity.context, position + " is selected!", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(MainActivity.context, ActivityInnerPage.class);
+                    // intent.putExtra("name",ti);
+                    intent.putExtra("id", position + "");
+                    intent.putExtra("username", first_users.get(position).getUsername().toString());   /////??????????????
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    MainActivity.context.startActivity(intent);*/
 
                 }
             }
@@ -227,6 +231,8 @@ public class Users extends Activity {
 
 
     }
+
+
     //*************    select any user frinde    *************//
 
     public  void selectFrends(int position) {
@@ -237,7 +243,6 @@ public class Users extends Activity {
 
         new class_selectFriends(first_users.get(position).getUsername().toString(),position).execute();
     }
-
 
     //*************    select any user frinde from server   *************//
     public class class_selectFriends extends AsyncTask {
@@ -340,6 +345,7 @@ public class Users extends Activity {
 
     }
 
+
     //*************    select firends information from servr  || use in  class_selectFriends *************//
 
     public class class_selectFriendsInfo extends AsyncTask {   /////baraye jostejooie moshakhasate dostan...   ////test...
@@ -418,10 +424,5 @@ public class Users extends Activity {
 
 
     }
-
-
-
-
-
 
 }
